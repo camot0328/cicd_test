@@ -10,3 +10,19 @@ jobs:
     steps:
       - name: simple-web
         run: echo "This is the first auto cicd step 1"
+
+      - name: 파일생성
+        run: echo "hello world">test.txt
+  My-Second-CICD-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: github 변수 확인
+        run: |
+          echo $GITHUB_SHA
+          echo $GITHUB_REPOSITORY
+
+      - name: secret 변수 확인
+        run: |
+          echo ${{ secrets.MY_KEY }}
+          echo ${{ secrets.MY_SECRETE_KEY }}
